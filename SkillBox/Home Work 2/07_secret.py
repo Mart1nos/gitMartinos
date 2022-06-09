@@ -22,5 +22,8 @@ secret_message = [
 # Если нужны вычисления и разные пробы - делайте это в консоли пайтона, тут нужен только результат
 
 print(secret_message[0][3])
-print(secret_message)
+print(secret_message[1][9:13])
+print(secret_message[2][5:15:2])
+print(secret_message[3][-20:-26:-1])
+print(secret_message[4][-12:-17:-1])
 
