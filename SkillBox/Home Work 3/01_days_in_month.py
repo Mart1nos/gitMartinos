@@ -26,9 +26,12 @@ month = {
     '12': 31
 }
 
-if user_input == 1:
+if user_input == month['1']:
     print(month['1'])
-elif user_input
+elif user_input < month:
+    print(month['2'])
+else:
+    print('Номер месяца введен не прапильно, попробуйте другое!')
 
 
 
