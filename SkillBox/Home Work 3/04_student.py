@@ -9,15 +9,18 @@
 # Формат вывода:
 #   Студенту надо попросить ХХХ.ХХ рублей
 
-educational_grant, expenses = 10000, 12000
-month = 9
-time = 0
+educational_grant = 10000
+expenses = 12000
+percent_expenses = 3
+academic_year = 10
+parents_money = 0
+i = 1
 
-while time < month:
-    time += 1
-    expenses = expenses * 0.03 + expenses
-    expenses_2 = expenses
-print("Студенту надо попросить", round(expenses, 2), "рублей")
+while i <= academic_year:
+    parents_money += expenses - educational_grant
+    expenses = expenses + (expenses / 100 * percent_expenses)
+    i += 1
+print("Студенту нужно попросить у родителей", round(parents_money, 2), "руб")
 
 
 
