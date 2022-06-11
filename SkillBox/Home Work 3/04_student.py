@@ -16,8 +16,8 @@ time = 0
 while time < month:
     time += 1
     expenses = expenses * 0.03 + expenses
-    expenses_2 = expenses - educational_grant
-print("Студенту надо попросить", round(expenses_2, 2), "рублей")
+    expenses_2 = expenses
+print("Студенту надо попросить", round(expenses, 2), "рублей")
 
 
 

@@ -46,7 +46,10 @@ store = {
 #         подсчет стоимости товара
 #     вывод на консоль количества и стоимости товара на складе
 
-# TODO здесь ваш код
+for i in goods.items():
+    lamps_cost = store["Лампа"][0]['quantity']
+    print(lamps_cost)
+
 
 
 

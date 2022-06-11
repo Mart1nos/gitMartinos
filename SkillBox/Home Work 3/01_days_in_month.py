@@ -9,27 +9,32 @@
 # Номер месяца получать от пользователя следующим образом
 
 user_input = int(input("Введите, пожалуйста, номер месяца: "))
-
-month = {
-
-    '1': 31,
-    '2': 28,
-    '3': 31,
-    '4': 30,
-    '5': 31,
-    '6': 30,
-    '7': 31,
-    '8': 31,
-    '9': 30,
-    '10': 31,
-    '11': 30,
-    '12': 31
-}
-
-if user_input == month['1']:
-    print(month['1'])
-elif user_input < month:
-    print(month['2'])
+#    '1': 31,
+#    '2': 28,
+#    '3': 31,
+#    '4': 30,
+#    '5': 31,
+#    '6': 30,
+#    '7': 31,
+#    '8': 31,
+#    '9': 30,
+#    '10': 31,
+#    '11': 30,
+#    '12': 31
+if user_input == 1 or user_input == 3:
+    print('31')
+elif user_input == 5 or user_input == 7:
+    print('31')
+elif user_input == 8 or user_input == 10:
+    print('31')
+elif user_input == 12:
+    print("31")
+elif user_input == 4 or user_input == 6:
+    print("30")
+elif user_input == 9 or user_input == 11:
+    print("30")
+elif user_input == 2:
+    print("28")
 else:
     print('Номер месяца введен не прапильно, попробуйте другое!')
 
