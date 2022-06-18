@@ -2,6 +2,8 @@
 
 import simple_draw as sd
 
+sd.resolution = (1200, 600)
+
 # Часть 1.
 # Написать функции рисования равносторонних геометрических фигур:
 # - треугольника
@@ -27,7 +29,14 @@ import simple_draw as sd
 # sd.line()
 # Результат решения см lesson_004/results/exercise_01_shapes.jpg
 
+point = sd.get_point(150, 150)
 
+v1 = sd.get_vector(start_point=point, angle=0, length=150, width=3)
+v1.draw()
+v2 = sd.get_vector(start_point=v1.end_point, angle=120, length=150, width=3)
+v2.draw()
+v3 = sd.get_vector(start_point=v2.end_point, angle=240, length=150, width=3)
+v3.draw()
 
 # Часть 1-бис.
 # Попробуйте прикинуть обьем работы, если нужно будет внести изменения в этот код.
