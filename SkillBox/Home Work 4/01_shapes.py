@@ -29,88 +29,89 @@ sd.resolution = (1200, 600)
 # sd.line()
 # Результат решения см lesson_004/results/exercise_01_shapes.jpg
 
-def triangle(point, angle=0):
-    v1 = sd.get_vector(start_point=point, angle=angle, length=150, width=3)
+def triangle(point, length, angle=0):
+    v1 = sd.get_vector(start_point=point, angle=angle, length=length, width=3)
     v1.draw()
 
-    v2 = sd.get_vector(start_point=v1.end_point, angle=angle + 120, length=150, width=3)
+    v2 = sd.get_vector(start_point=v1.end_point, angle=angle + 120, length=length, width=3)
     v2.draw()
 
-    v3 = sd.get_vector(start_point=v2.end_point, angle=angle + 240, length=150, width=3)
+    v3 = sd.get_vector(start_point=v2.end_point, angle=angle + 240, length=length, width=3)
     v3.draw()
+
 
 angle = 30
 point = sd.get_point(100, 100)
-triangle(point=point, angle=angle)
+triangle(point=point, angle=angle, length=150)
 
 
 
-def square(point, angle=0):
-    v1 = sd.get_vector(start_point=point, angle=angle, length=150, width=3)
+def square(point, length, angle=0):
+    v1 = sd.get_vector(start_point=point, angle=angle, length=length, width=3)
     v1.draw()
 
-    v2 = sd.get_vector(start_point=v1.end_point, angle=angle + 90, length=150, width=3)
+    v2 = sd.get_vector(start_point=v1.end_point, angle=angle + 90, length=length, width=3)
     v2.draw()
 
-    v3 = sd.get_vector(start_point=v2.end_point, angle=angle + 180, length=150, width=3)
+    v3 = sd.get_vector(start_point=v2.end_point, angle=angle + 180, length=length, width=3)
     v3.draw()
 
-    v4 = sd.get_vector(start_point=v3.end_point, angle=angle + 270, length=150, width=3)
+    v4 = sd.get_vector(start_point=v3.end_point, angle=angle + 270, length=length, width=3)
     v4.draw()
 
 
 angle = 30
 point_0 = sd.get_point(500, 100)
-square(point=point_0, angle=angle)
+square(point=point_0, angle=angle, length=150)
 
 
 
-def pentagon(point, angle=0):
-    v1 = sd.get_vector(start_point=point, angle=angle, length=100, width=3)
+def pentagon(point, length, angle=0):
+    v1 = sd.get_vector(start_point=point, angle=angle, length=length, width=3)
     v1.draw()
 
-    v2 = sd.get_vector(start_point=v1.end_point, angle=angle + 70, length=100, width=3)
+    v2 = sd.get_vector(start_point=v1.end_point, angle=angle + 70, length=length, width=3)
     v2.draw()
 
-    v3 = sd.get_vector(start_point=v2.end_point, angle=angle + 145, length=100, width=3)
+    v3 = sd.get_vector(start_point=v2.end_point, angle=angle + 145, length=length, width=3)
     v3.draw()
 
-    v4 = sd.get_vector(start_point=v3.end_point, angle=angle + 215, length=100, width=3)
+    v4 = sd.get_vector(start_point=v3.end_point, angle=angle + 215, length=length, width=3)
     v4.draw()
 
-    v5 = sd.get_vector(start_point=v4.end_point, angle=angle + 290, length=100, width=3)
+    v5 = sd.get_vector(start_point=v4.end_point, angle=angle + 290, length=length, width=3)
     v5.draw()
 
 
 angle = 30
 point_1 = sd.get_point(150, 300)
-pentagon(point=point_1, angle=angle)
+pentagon(point=point_1, angle=angle, length=100)
 
 
 
-def hexagon(point, angle=0):
-    v1 = sd.get_vector(start_point=point, angle=angle, length=100, width=3)
+def hexagon(point, length, angle=0):
+    v1 = sd.get_vector(start_point=point, angle=angle, length=length, width=3)
     v1.draw()
 
-    v2 = sd.get_vector(start_point=v1.end_point, angle=angle + 60, length=100, width=3)
+    v2 = sd.get_vector(start_point=v1.end_point, angle=angle + 60, length=length, width=3)
     v2.draw()
 
-    v3 = sd.get_vector(start_point=v2.end_point, angle=angle + 120, length=100, width=3)
+    v3 = sd.get_vector(start_point=v2.end_point, angle=angle + 120, length=length, width=3)
     v3.draw()
 
-    v4 = sd.get_vector(start_point=v3.end_point, angle=angle + 180, length=100, width=3)
+    v4 = sd.get_vector(start_point=v3.end_point, angle=angle + 180, length=length, width=3)
     v4.draw()
 
-    v5 = sd.get_vector(start_point=v4.end_point, angle=angle + 240, length=100, width=3)
+    v5 = sd.get_vector(start_point=v4.end_point, angle=angle + 240, length=length, width=3)
     v5.draw()
 
-    v6 = sd.get_vector(start_point=v5.end_point, angle=angle + 300, length=100, width=3)
+    v6 = sd.get_vector(start_point=v5.end_point, angle=angle + 300, length=length, width=3)
     v6.draw()
 
 
 angle = 30
 point_2 = sd.get_point(600, 350)
-hexagon(point=point_2, angle=angle)
+hexagon(point=point_2, angle=angle, length=100)
 
 # Часть 1-бис.
 # Попробуйте прикинуть обьем работы, если нужно будет внести изменения в этот код.
