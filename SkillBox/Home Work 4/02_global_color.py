@@ -16,90 +16,34 @@ sd.resolution = (1200, 600)
 # и константы COLOR_RED, COLOR_ORANGE, COLOR_YELLOW, COLOR_GREEN, COLOR_CYAN, COLOR_BLUE, COLOR_PURPLE
 # Результат решения см lesson_004/results/exercise_02_global_color.jpg
 
-
-def triangle(point, length, colors, angle=0):
-    v1 = sd.get_vector(start_point=point, angle=angle, length=length, width=3)
-    v1.draw(color=colors)
-
-    v2 = sd.get_vector(start_point=v1.end_point, angle=angle + 120, length=length, width=3)
-    v2.draw(color=colors)
-
-    v3 = sd.get_vector(start_point=v2.end_point, angle=angle + 240, length=length, width=3)
-    v3.draw(color=colors)
-
-
-angle = 30
-point = sd.get_point(100, 100)
-triangle(point=point, angle=angle, length=150, colors=colors)
+def figure(figure_point, length_tri, angle_tri, angles, figure_color):
+    n = angles
+    angle = (n - 2) / n * 180
+    new_angle = 0 + angle_tri
+    point1 = figure_point
+    for _ in range(0, n - 1):
+        v1 = sd.get_vector(figure_point, new_angle, length_tri, 2)
+        v1.draw(color=figure_color)
+        new_angle += 180 - angle
+        figure_point = v1.end_point
+    sd.line(point1, figure_point, color=figure_color, width=2)
 
 
-
-def square(point, length, colors, angle=0):
-    v1 = sd.get_vector(start_point=point, angle=angle, length=length, width=3)
-    v1.draw(color=colors)
-
-    v2 = sd.get_vector(start_point=v1.end_point, angle=angle + 90, length=length, width=3)
-    v2.draw(dcolor=colors)
-
-    v3 = sd.get_vector(start_point=v2.end_point, angle=angle + 180, length=length, width=3)
-    v3.draw(color=colors)
-
-    v4 = sd.get_vector(start_point=v3.end_point, angle=angle + 270, length=length, width=3)
-    v4.draw(color=colors)
+def triangle(figure_color, figure_point):
+    figure(figure_point, 100, 25, 3, figure_color)
 
 
-angle = 30
-point_0 = sd.get_point(500, 100)
-square(point=point_0, angle=angle, length=150, colors=colors)
+def square(figure_color, figure_point):
+    figure(figure_point, 100, 25, 4, figure_color)
 
 
-
-def pentagon(point, length, colors, angle=0):
-    v1 = sd.get_vector(start_point=point, angle=angle, length=length, width=3)
-    v1.draw(color=colors)
-
-    v2 = sd.get_vector(start_point=v1.end_point, angle=angle + 70, length=length, width=3)
-    v2.draw(color=colors)
-
-    v3 = sd.get_vector(start_point=v2.end_point, angle=angle + 145, length=length, width=3)
-    v3.draw(color=colors)
-
-    v4 = sd.get_vector(start_point=v3.end_point, angle=angle + 215, length=length, width=3)
-    v4.draw(color=colors)
-
-    v5 = sd.get_vector(start_point=v4.end_point, angle=angle + 290, length=length, width=3)
-    v5.draw(color=colors)
+def pentagon(figure_color, figure_point):
+    figure(figure_point, 65, 25, 5, figure_color)
 
 
-angle = 30
-point_1 = sd.get_point(150, 300)
-pentagon(point=point_1, angle=angle, length=100, colors=colors)
+def hexagon(figure_color, figure_point):
+    figure(figure_point, 65, 25, 7, figure_color)
 
-
-
-def hexagon(point, length, colors, angle=0):
-    v1 = sd.get_vector(start_point=point, angle=angle, length=length, width=3)
-    v1.draw(color=colors)
-
-    v2 = sd.get_vector(start_point=v1.end_point, angle=angle + 60, length=length, width=3)
-    v2.draw(color=colors)
-
-    v3 = sd.get_vector(start_point=v2.end_point, angle=angle + 120, length=length, width=3)
-    v3.draw(color=colors)
-
-    v4 = sd.get_vector(start_point=v3.end_point, angle=angle + 180, length=length, width=3)
-    v4.draw(color=colors)
-
-    v5 = sd.get_vector(start_point=v4.end_point, angle=angle + 240, length=length, width=3)
-    v5.draw(color=colors)
-
-    v6 = sd.get_vector(start_point=v5.end_point, angle=angle + 300, length=length, width=3)
-    v6.draw(color=colors)
-
-
-angle = 30
-point_2 = sd.get_point(600, 350)
-hexagon(point=point_2, angle=angle, length=100, colors=colors)
 
 colors = {'1': {'Название цвета': 'Красный', 'Цвет': sd.COLOR_RED},
           '2': {'Название цвета': 'Оранжевый', 'Цвет': sd.COLOR_ORANGE},
@@ -112,18 +56,21 @@ colors = {'1': {'Название цвета': 'Красный', 'Цвет': sd.
 for number, color in colors.items():
     print(number, ' - ', color['Название цвета'])
 
+t_point = sd.get_point(100, 450)
+s_point = sd.get_point(100, 100)
+h_point = sd.get_point(400, 450)
+p_point = sd.get_point(400, 110)
+
 x = input("Введите свой номер: ")
 
 if x in colors:
-    triangle(colors[x]['Цвет'], point)
-    square(colors[x]['Цвет'], point_0)
-    pentagon(colors[x]['Цвет'], point_1)
-    hexagon(colors[x]['Цвет'], point_2)
+    point = sd.get_point(100, 350)
+    triangle(colors[x]['Цвет'], t_point)
+    square(colors[x]['Цвет'], s_point)
+    pentagon(colors[x]['Цвет'], p_point)
+    hexagon(colors[x]['Цвет'], h_point)
+    sd.pause()
 else:
     print('Вы ввели неправильное значение. Повторите попытку!')
-
-
-
-
 
 sd.pause()
