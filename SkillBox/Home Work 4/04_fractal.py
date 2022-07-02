@@ -26,27 +26,24 @@ import simple_draw as sd
 
 # можно поиграть -шрифтами- цветами и углами отклонения
 
-sd.resolution = (600, 800)
+sd.resolution = (1200, 800)
+point_0 = sd.get_point(600, 5) # Начальная точка по x и y
 
-point_0 = sd.get_point(300, 5) # Начальная точка по x и y
-v1 = sd.get_vector(start_point=point_0, angle=90, length=200, width=3)
-v1.draw()
-
-def branch(point, angle, length, delta):
-    if length < 1:
+def draw_branches(point, angle, length):
+    if length < 5:
         return
-    v1 = sd.get_vector(start_point=point, angle=angle, length=length, width=3)
+    v1 = sd.get_vector(start_point=point, angle=angle, length=length, width=1)
     v1.draw()
     next_point = v1.end_point
-    next_angle = angle - delta
+    next_angle = angle - 30
+    next_angle_2 = angle + 30
     next_length = length * .75
-    branch(point=next_point, angle=next_angle, length=next_length, delta=delta)
+    draw_branches(point=next_point, angle=next_angle, length=next_length)
+    draw_branches(point=next_point, angle=next_angle_2, length=next_length)
 
 
-for delta in range(0, 51, 10):
-    branch(point=point_0, angle=90, length=150, delta=delta)
-for delta in range(-50, 1, 10):
-    branch(point=point_0, angle=90, length=150, delta=delta)
+
+draw_branches(point=point_0, angle=90, length=200)
 
 
 # 4) Усложненное задание (делать по желанию)
@@ -57,6 +54,21 @@ for delta in range(-50, 1, 10):
 # Пригодятся функции
 # sd.random_number()
 
+def draw_branches(point, angle, length):
+    if length < 10:
+        return
+    v1 = sd.get_vector(start_point=point, angle=angle, length=length, width=1)
+    v1.draw(color=sd.COLOR_GREEN)
+    next_point = v1.end_point
+    next_angle = angle - sd.random_number(30, 40)
+    next_angle_2 = angle + sd.random_number(30, 40)
+    next_length = length * (sd.random_number(75, 90) / 100)
+    draw_branches(point=next_point, angle=next_angle, length=next_length)
+    draw_branches(point=next_point, angle=next_angle_2, length=next_length)
+
+
+
+draw_branches(point=point_0, angle=90, length=150)
 sd.pause()
 
 
