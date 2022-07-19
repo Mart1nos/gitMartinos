@@ -18,8 +18,15 @@
 # пример см. lesson_005/results/04_painting.jpg
 # Приправить своей фантазией по вкусу (коты? коровы? люди? трактор? что придумается)
 
+import simple_draw as sd
 
+sd.resolution = (1500, 800)
 
+from village import morning_in_the_village
+
+morning_in_the_village.people()
+
+sd.pause()
 # Усложненное задание (делать по желанию)
 # Анимировать картину.
 # Пусть слева идет снегопад, радуга переливается цветами, смайлик моргает, солнце крутит лучами, етс.
