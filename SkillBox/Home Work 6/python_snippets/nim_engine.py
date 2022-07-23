@@ -17,6 +17,7 @@ def put_stones():
 
 
 def take_from_bunch(position, quantity):
+    """Взять из кучи камни"""
     if position in _holder:
         _holder[position] -= quantity
         return True
@@ -25,6 +26,7 @@ def take_from_bunch(position, quantity):
 
 
 def get_bunches():
+    """Положение камней"""
     res = []
     for key in _sorted_keys:
         res.append(_holder[key])
@@ -32,4 +34,5 @@ def get_bunches():
 
 
 def is_gameover():
+    """Конец игры"""
     return sum(_holder.values()) == 0

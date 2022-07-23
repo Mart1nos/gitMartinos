@@ -43,4 +43,43 @@
 # Это пример применения SOLID принципа (см https://goo.gl/GFMoaI) в архитектуре программ.
 # Точнее, в этом случае важен принцип единственной ответственности - https://goo.gl/rYb3hT
 
-# TODO здесь ваш код...
+from mastermind_engine import make_number, check_number
+from random import shuffle
+
+make_number()
+print("Компьютер загадал число")
+print("Первая цифра числа отлична от нуля, все цифры различны")
+step = 0
+num = list('0123456789')
+shuffle(num)
+comparison = num[3:7] if num[3] != '0' else num[4:8]
+while True:
+    pos = input("Введите четырехзначное число:")
+    check_number(position=pos)
+    bulls = 0
+    cows = 0
+    for i in range(4):
+        if pos[i] == comparison[i]:
+            bulls += 1
+        elif pos[i] in comparison:
+            cows += 1
+
+    print(pos, 'содержит', bulls, 'быка и', cows, 'коровы')
+    step += 1
+    if bulls == 4:
+        print("Поздравляю!!!! Вы отгадали число за", step, "ходов")
+        break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
