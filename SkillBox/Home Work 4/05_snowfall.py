@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from random import randint
 
 import simple_draw as sd
 sd.resolution = (1200, 600)
@@ -15,13 +16,20 @@ sd.resolution = (1200, 600)
 # sd.random_number()
 # sd.user_want_exit()
 
-i = 0
-while i < 21:
-    x = sd.random_number(100, 300)
-    y = sd.random_number(30, 55)
-    point = sd.get_point(x, y)
-    sd.snowflake(center=point, length=30)
-    i += 1
+snowflakes = [[i*36, randint(540,600), randint(2,5)] for i in range(20) ]
+# snowflakes списко из снежинок. Снежинка тоже список, где первый индекс х, второй y, а третий скорость падения.
+while True:
+    sd.clear_screen()
+    for snow_item in snowflakes:
+        snow_item[1] = snow_item[1] - snow_item[2]
+        point_0=sd.get_point(snow_item[0], snow_item[1])
+        sd.snowflake(center=point_0, length=30, color=sd.COLOR_WHITE)
+        if snow_item[1] < 30:
+            break
+        snow_item[0] = snow_item[0] + 5
+    sd.sleep(0.05)
+    if sd.user_want_exit():
+        break
 
 sd.pause()
 # подсказка! для ускорения отрисовки можно
