@@ -1,4 +1,5 @@
 import simple_draw as sd
+from random import randint
 
 def creating_snowflake(quantity):
     """Создаем N снежинок"""
@@ -8,12 +9,14 @@ def creating_snowflake(quantity):
 
 def decorate_snowflake(color):
     """Нарисовать снежинку цветом color"""
-    pass
-
+    sd.snowflake(center=point_0, length=30, color=color)
+    point_0 = sd.get_point(snow_item[0], snow_item[1])
 
 def move_the_snowflake():
     """Сдвинуть снежинку на один шаг"""
-    pass
+    for snow_item in snowflakes:
+        snow_item[1] = snow_item[1] - snow_item[2]
+        point_0 = sd.get_point(snow_item[0], snow_item[1])
 
 
 def screen_bottom_number():
